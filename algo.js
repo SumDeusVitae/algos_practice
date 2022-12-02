@@ -125,11 +125,18 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
+    // Creating map
     let map = {};
+    let difference;
+    //Looping thru array
     for (let i = 0; i < nums.length; i++) {
-        if (map[target - nums[i]] >= 0) {
-            return [map[target - nums[i]], i]
+        difference = target - nums[i];
+        // checking if exist in map and 
+        if (map[difference] >= 0) {
+            // returning indexes of results
+            return [map[difference], i]
         } else {
+            // adding to map if not exist
             map[nums[i]] = i
         }
     }
