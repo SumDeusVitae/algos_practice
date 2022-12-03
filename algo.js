@@ -181,3 +181,23 @@
 //     };
 // };
 // ------------------------------------------------------
+// Leet Code 26. Remove Duplicates from Sorted Array
+// 2 points left and right
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var removeDuplicates = function (nums) {
+    let l = 1;
+    let r = 1;
+    while (r < nums.length) {
+        if (nums[r] != nums[r - 1]) {
+            nums[l] = nums[r];
+            l++;
+        }
+        r++;
+    };
+    return l;
+};
+nums = [0, 1, 2, 2, 3, 3, 4, 4, 4, 4, 5]
+console.log(removeDuplicates(nums));
