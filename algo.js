@@ -117,27 +117,27 @@
 //   return p1;
 // };
 
-// Leet code 1. Two Sum
+// // Leet code 1. Two Sum
 
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function (nums, target) {
-    // Creating map
-    let map = {};
-    let difference;
-    //Looping thru array
-    for (let i = 0; i < nums.length; i++) {
-        difference = target - nums[i];
-        // checking if exist in map and 
-        if (map[difference] >= 0) {
-            // returning indexes of results
-            return [map[difference], i]
-        } else {
-            // adding to map if not exist
-            map[nums[i]] = i
-        }
-    }
-};
+// /**
+//  * @param {number[]} nums
+//  * @param {number} target
+//  * @return {number[]}
+//  */
+// var twoSum = function (nums, target) {
+//     // Creating map
+//     let map = {};
+//     let difference;
+//     //Looping thru array
+//     for (let i = 0; i < nums.length; i++) {
+//         difference = target - nums[i];
+//         // checking if exist in map and
+//         if (map[difference] >= 0) {
+//             // returning indexes of results
+//             return [map[difference], i]
+//         } else {
+//             // adding to map if not exist
+//             map[nums[i]] = i
+//         }
+//     }
+// };
