@@ -212,8 +212,13 @@ var maxProfit = function (prices) {
     let buy = prices[0];
     let prof = 0;
     for (let i = 1; i < prices.length; i++) {
-        buy = Math.min(buy, prices[i]);
-        prof = Math.max(prof, prices[i] - buy)
+        // buy = Math.min(buy, prices[i]);
+        // prof = Math.max(prof, prices[i] - buy)
+        if (buy > prices[i]) {
+            buy = prices[i]
+        } else if (prof < prices[i] - buy) {
+            prof = prices[i] - buy;
+        }
     }
     return prof;
 };
