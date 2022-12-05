@@ -236,28 +236,41 @@
 //     if (x - revNum == 0) return true;
 //     return false;
 // };
-// Solution without converting integer
+// // Solution without converting integer
+// var isPalindrome = function (x) {
+//     if (x >= 0 && x < 10) return true;
+//     if (x < 0) return false;
+//     let tempX = x;
+//     let revNum = 0;
+//     let k = 1;
+//     let c = 1;
+//     while (x > k) {
+//         c++;
+//         k *= 10;
+//     }
+//     let holder = 0;
+//     for (let i = 0; i < c; i++) {
+//         holder = tempX % 10;
+//         tempX = Math.floor(tempX / 10);
+//         revNum += holder * k;
+//         k /= 10;
+//     }
+//     if (x - (revNum / 10) == 0) return true;
+//     return false;
+// };
+// simpler solution
 var isPalindrome = function (x) {
-    if (x >= 0 && x < 10) return true;
-    if (x < 0) return false;
-    let tempX = x;
-    let revNum = 0;
-    let k = 1;
-    let c = 1;
-    while (x > k) {
-        c++;
-        k *= 10;
+    let res = 0;
+    let orig = x;
+    while (x > 0) {
+        res = res * 10 + x % 10;
+        x = Math.floor(x / 10);
     }
-    let holder = 0;
-    for (let i = 0; i < c; i++) {
-        holder = tempX % 10;
-        tempX = Math.floor(tempX / 10);
-        revNum += holder * k;
-        k /= 10;
-    }
-    if (x - (revNum / 10) == 0) return true;
+    if (res == orig) return true;
     return false;
+
 };
-const x = 121;
+
+const x = 122;
 console.log(isPalindrome(x));
-// console.log(x, revNum / 10);
+// console.log(rev(4324));
