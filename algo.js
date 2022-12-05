@@ -202,23 +202,40 @@
 // nums = [0, 1, 2, 2, 3, 3, 4, 4, 4, 4, 5]
 // console.log(removeDuplicates(nums));
 // ------------------------------------------------------
-// Leet Code 121. Best Time to Buy and Sell Stock
+// // Leet Code 121. Best Time to Buy and Sell Stock
+// /**
+//  * @param {number[]} prices
+//  * @return {number}
+//  */
+// var maxProfit = function (prices) {
+//     if (prices == null || prices.length <= 1) return 0;
+//     let buy = prices[0];
+//     let prof = 0;
+//     for (let i = 1; i < prices.length; i++) {
+//         // buy = Math.min(buy, prices[i]);
+//         // prof = Math.max(prof, prices[i] - buy)
+//         if (buy > prices[i]) {
+//             buy = prices[i]
+//         } else if (prof < prices[i] - buy) {
+//             prof = prices[i] - buy;
+//         }
+//     }
+//     return prof;
+// };
+// ------------------------------------------------------
+// Leet Code 
 /**
- * @param {number[]} prices
- * @return {number}
+ * @param {number} x
+ * @return {boolean}
  */
-var maxProfit = function (prices) {
-    if (prices == null || prices.length <= 1) return 0;
-    let buy = prices[0];
-    let prof = 0;
-    for (let i = 1; i < prices.length; i++) {
-        // buy = Math.min(buy, prices[i]);
-        // prof = Math.max(prof, prices[i] - buy)
-        if (buy > prices[i]) {
-            buy = prices[i]
-        } else if (prof < prices[i] - buy) {
-            prof = prices[i] - buy;
-        }
-    }
-    return prof;
+// Solution with inverting integer to string
+var isPalindrome = function (x) {
+    if (x < 0) return false;
+    let str = x.toString().split("").reverse().join("");
+    let revNum = parseInt(str);
+    if (x - revNum == 0) return true;
+    return false;
 };
+
+const x = 9;
+console.log(isPalindrome(x));
