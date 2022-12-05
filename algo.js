@@ -259,18 +259,37 @@
 //     return false;
 // };
 // simpler solution
-var isPalindrome = function (x) {
-    let res = 0;
-    let orig = x;
-    while (x > 0) {
-        res = res * 10 + x % 10;
-        x = Math.floor(x / 10);
-    }
-    if (res == orig) return true;
-    return false;
+// var isPalindrome = function (x) {
+//     let res = 0;
+//     let orig = x;
+//     while (x > 0) {
+//         res = res * 10 + x % 10;
+//         x = Math.floor(x / 10);
+//     }
+//     if (res == orig) return true;
+//     return false;
 
+// };
+// DFS  Solution
+var isPalindrome = function (x) {
+    if (x >= 0 && x < 10) return true;
+    if (x < 0) return false;
+    if (x - revNumber(x) == 0) return true;
+    return false;
 };
-// DFS 
-const x = 122;
+
+var revNumber = function (x) {
+    if (x < 10) return x;
+    let counter = -1;
+    let temp = x;
+    while (temp > 1) {
+        temp /= 10;
+        counter++;
+    }
+    let h = Math.floor(temp * 10);
+    temp = x - (h * Math.pow(10, counter));
+    return revNumber(temp) * 10 + h;
+};
+const x = 123;
 console.log(isPalindrome(x));
 // console.log(rev(4324));
