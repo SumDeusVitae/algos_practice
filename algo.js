@@ -270,7 +270,7 @@ var isPalindrome = function (x) {
     return false;
 
 };
-
+// DFS 
 const x = 122;
 console.log(isPalindrome(x));
 // console.log(rev(4324));
