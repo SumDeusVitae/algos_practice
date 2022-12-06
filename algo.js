@@ -236,7 +236,7 @@
 //     if (x - revNum == 0) return true;
 //     return false;
 // };
-// // Solution without converting integer
+// // Solution without converting integer to string
 // var isPalindrome = function (x) {
 //     if (x >= 0 && x < 10) return true;
 //     if (x < 0) return false;
@@ -258,7 +258,7 @@
 //     if (x - (revNum / 10) == 0) return true;
 //     return false;
 // };
-// simpler solution
+// // Simplest Solution
 // var isPalindrome = function (x) {
 //     let res = 0;
 //     let orig = x;
@@ -266,30 +266,44 @@
 //         res = res * 10 + x % 10;
 //         x = Math.floor(x / 10);
 //     }
-//     if (res == orig) return true;
-//     return false;
-
+//     return res == orig ? true : false;
 // };
 // DFS  Solution
+// HELPER Function this function returns array with first element = biggest number, second = how many digits after it
+var bigestHowMany = function (x) {
+    let counter = -1;
+    while (!(x < 1)) {
+        x /= 10;
+        counter++;
+    }
+    let res = Math.floor(x * 10);
+    return [res, counter];
+};
 var isPalindrome = function (x) {
+    // 2 base cases
     if (x >= 0 && x < 10) return true;
     if (x < 0) return false;
-    if (x - revNumber(x) == 0) return true;
-    return false;
+    // starting recursive function revNumber
+    return x - revNumber(x) == 0 ? true : false;
 };
-
+// Recursiv function to get recursive number
 var revNumber = function (x) {
     if (x < 10) return x;
     let counter = -1;
-    let temp = x;
-    while (temp > 1) {
-        temp /= 10;
-        counter++;
-    }
-    let h = Math.floor(temp * 10);
-    temp = x - (h * Math.pow(10, counter));
-    return revNumber(temp) * 10 + h;
+    let dif = 1;
+    // calling helping function to get first digit of int and how many digits it has after and storing these 2 values in val1
+    let val1 = bigestHowMany(x);
+    temp = x - (val1[0] * Math.pow(10, val1[1]));
+    // checking length of the integer temp, which is val2[1]+1 technicaly
+    let val2 = bigestHowMany(temp);
+    // we checking if we didn't miss any zeros in the middle
+    if (val1[1] != val2[1]) dif = val1[1] - val2[1];
+    return revNumber(temp) * Math.pow(10, dif) + val1[0];
 };
-const x = 123;
+// const x = 121;
+const x = 121;
 console.log(isPalindrome(x));
-// console.log(rev(4324));
+// console.log(`rev number = ${revNumber(100)}`);
+// console.log(350 % 10);
+
+// console.log(bigestHowMany(12356));
