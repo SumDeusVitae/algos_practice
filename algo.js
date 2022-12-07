@@ -302,15 +302,22 @@
 // ------------------------------------------------------
 // Leet Code 841. Keys and Rooms (Medium)
 var canVisitAllRooms = function (rooms) {
+    // Creating new empty Set and new array keys with element 0 in it
     let visited = new Set;
     let keys = [0];
+    // Looping thru  keys array, first time pasing because we have key 0
     while (keys.length > 0) {
+        // removing last element from the array keys
         let currentKey = keys.pop();
+        // checking if our set already has this key
         if (!visited.has(currentKey)) {
+            // if not adding new key to our set of keys
             visited.add(currentKey);
+            // getting  all keys from current room in to our array keys 
             keys.push(...rooms[currentKey]);
         }
     }
+
     if (visited.size == rooms.length) return true;
     return false;
 };
