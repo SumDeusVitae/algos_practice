@@ -299,3 +299,18 @@
 // // const x = 121;
 // const x = 121;
 // console.log(isPalindrome(x));
+// ------------------------------------------------------
+// Leet Code 841. Keys and Rooms (Medium)
+var canVisitAllRooms = function (rooms) {
+    let visited = new Set;
+    let keys = [0];
+    while (keys.length > 0) {
+        let currentKey = keys.pop();
+        if (!visited.has(currentKey)) {
+            visited.add(currentKey);
+            keys.push(...rooms[currentKey]);
+        }
+    }
+    if (visited.size == rooms.length) return true;
+    return false;
+};
