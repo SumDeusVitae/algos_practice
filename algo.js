@@ -317,7 +317,6 @@ var canVisitAllRooms = function (rooms) {
             keys.push(...rooms[currentKey]);
         }
     }
-
-    if (visited.size == rooms.length) return true;
-    return false;
+    // Checking if we visited same length as rooms
+    return visited.size == rooms.length;
 };
