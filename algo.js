@@ -320,29 +320,31 @@
 //     // Checking if we visited same length as rooms
 //     return visited.size == rooms.length;
 // };
-
+// // ------------------------------------------------------
+// // Leet Code 14. Longest Common Prefix
+// // https://leetcode.com/problems/longest-common-prefix/
+// var longestCommonPrefix = function (strs) {
+//     let longest = strs[0][0];
+//     let cur = longest;
+//     if (strs == longest) return longest;
+//     if (longest == undefined) return '';
+//     let check = strs.filter(x => x[0] == longest);
+//     if (check.length != strs.length) {
+//         return '';
+//     }
+//     for (let i = 1; i < strs[0].length; i++) {
+//         cur = strs[0][i];
+//         check = strs.filter(x => x[i] == cur);
+//         if (check.length != strs.length) return longest;
+//         longest += cur;
+//     }
+//     return longest;
+// };
+// strs =
+//     ["flow", "flower", "flowe", "flower"]
+// console.log(longestCommonPrefix(strs));
+// // Getting shortrest word in array
+// console.log(strs.reduce((a, b) => a.length <= b.length ? a : b));
+//
 // ------------------------------------------------------
-// Leet Code 14. Longest Common Prefix
-// https://leetcode.com/problems/longest-common-prefix/
-var longestCommonPrefix = function (strs) {
-    let longest = strs[0][0];
-    let cur = longest;
-    if (strs == longest) return longest;
-    if (longest == undefined) return '';
-    let check = strs.filter(x => x[0] == longest);
-    if (check.length != strs.length) {
-        return '';
-    }
-    for (let i = 1; i < strs[0].length; i++) {
-        cur = strs[0][i];
-        check = strs.filter(x => x[i] == cur);
-        if (check.length != strs.length) return longest;
-        longest += cur;
-    }
-    return longest;
-};
-strs =
-    ["flow", "flower", "flowe", "flower"]
-console.log(longestCommonPrefix(strs));
-// Getting shortrest word in array
-console.log(strs.reduce((a, b) => a.length <= b.length ? a : b));
+// Leet Code 
