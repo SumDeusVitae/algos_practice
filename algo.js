@@ -324,10 +324,6 @@
 // ------------------------------------------------------
 // Leet Code 14. Longest Common Prefix
 // https://leetcode.com/problems/longest-common-prefix/
-/**
- * @param {string[]} strs
- * @return {string}
- */
 var longestCommonPrefix = function (strs) {
     let longest = strs[0][0];
     let cur = longest;
@@ -346,6 +342,7 @@ var longestCommonPrefix = function (strs) {
     return longest;
 };
 strs =
-    ["flower", "flower", "flower", "flower"]
+    ["flow", "flower", "flowe", "flower"]
 console.log(longestCommonPrefix(strs));
-// REDO everything, start with indexation from first char 0->0+1->0+1+2 if no return last
+// Getting shortrest word in array
+console.log(strs.reduce((a, b) => a.length <= b.length ? a : b));
