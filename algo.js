@@ -352,3 +352,4 @@ var longestCommonPrefix = function (strs) {
 strs =
     ["abca", "aba", "aaab"]
 console.log(longestCommonPrefix(strs));
+// REDO everything, start with indexation from first char
