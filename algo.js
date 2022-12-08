@@ -324,3 +324,31 @@
 // ------------------------------------------------------
 // Leet Code 14. Longest Common Prefix
 // https://leetcode.com/problems/longest-common-prefix/
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function (strs) {
+    let longest = strs[0][0];
+    if (longest == undefined) return '';
+    let check = strs.filter(x => x[0] == longest);
+    if (check.length != strs.length) {
+        return '';
+    }
+    let cur = longest;
+    for (let i = 1; i < strs[0].length; i++) {
+        cur += strs[0][i];
+        if (strs.filter(x => x.includes(cur)).length == strs.length) {
+            if (cur.length > longest.length) longest = cur;
+
+        } else {
+            return longest;
+        }
+
+    }
+
+    return longest;
+};
+strs =
+    ["abca", "aba", "aaab"]
+console.log(longestCommonPrefix(strs));
