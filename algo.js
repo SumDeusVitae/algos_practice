@@ -330,26 +330,22 @@
  */
 var longestCommonPrefix = function (strs) {
     let longest = strs[0][0];
+    let cur = longest;
+    if (strs == longest) return longest;
     if (longest == undefined) return '';
     let check = strs.filter(x => x[0] == longest);
     if (check.length != strs.length) {
         return '';
     }
-    let cur = longest;
     for (let i = 1; i < strs[0].length; i++) {
-        cur += strs[0][i];
-        if (strs.filter(x => x.includes(cur)).length == strs.length) {
-            if (cur.length > longest.length) longest = cur;
-
-        } else {
-            return longest;
-        }
-
+        cur = strs[0][i];
+        check = strs.filter(x => x[i] == cur);
+        if (check.length != strs.length) return longest;
+        longest += cur;
     }
-
     return longest;
 };
 strs =
-    ["abca", "aba", "aaab"]
+    ["flower", "flower", "flower", "flower"]
 console.log(longestCommonPrefix(strs));
-// REDO everything, start with indexation from first char
+// REDO everything, start with indexation from first char 0->0+1->0+1+2 if no return last
