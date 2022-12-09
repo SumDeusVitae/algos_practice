@@ -347,4 +347,45 @@
 // console.log(strs.reduce((a, b) => a.length <= b.length ? a : b));
 //
 // ------------------------------------------------------
-// Leet Code 
+// Leet Code 2. Add Two Numbers (Medium)
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function (l1, l2) {
+    let value1 = l1.val;
+    let value2 = l2.val;
+    let counter1 = 1;
+    let counter2 = 1;
+    let resultInt;
+    let l3 = new ListNode;
+    while (l1.next != null) {
+        l1 = l1.next;
+        value1 += l1.val * Math.pow(10, counter1);
+        counter1++;
+    }
+    while (l2.next != null) {
+        l2 = l2.next;
+        value2 += l2.val * Math.pow(10, counter2);
+        counter2++;
+    }
+    resultInt = value1 + value2;
+    let temp;
+    while (!(resultInt < 1)) {
+        temp = resultInt % 10;
+        resultInt = Math.floor(resultInt / 10);
+        l3.val = temp;
+        l3.next = new ListNode;
+        l3 = l3.next;
+    }
+    return l3;
+};
