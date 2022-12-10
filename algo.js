@@ -361,6 +361,10 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
+function ListNode (val, next) {
+    this.val = (val === undefined ? 0 : val)
+    this.next = (next === undefined ? null : next)
+}
 var addTwoNumbers = function (l1, l2) {
     let value1 = l1.val;
     let value2 = l2.val;
@@ -379,13 +383,20 @@ var addTwoNumbers = function (l1, l2) {
         counter2++;
     }
     resultInt = value1 + value2;
-    let temp;
+    console.log(resultInt)
+    let temp = resultInt % 10;
+    l3.val = temp;
+    resultInt = Math.floor(resultInt / 10);
+    if (resultInt < 1) return l3;
+    let lTemp = new ListNode;
+    l3.next = lTemp;
     while (!(resultInt < 1)) {
         temp = resultInt % 10;
         resultInt = Math.floor(resultInt / 10);
-        l3.val = temp;
-        l3.next = new ListNode;
-        l3 = l3.next;
+        lTemp.val = temp;
+        if (resultInt < 1) break;
+        lTemp.next = new ListNode;
+        lTemp = lTemp.next;
     }
     return l3;
 };
