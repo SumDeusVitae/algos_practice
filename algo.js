@@ -346,11 +346,9 @@
 // // Getting shortrest word in array
 // console.log(strs.reduce((a, b) => a.length <= b.length ? a : b));
 //
-/** 
 // ------------------------------------------------------
 // Leet Code 2. Add Two Numbers (Medium)
-
-
+/**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
  *     this.val = (val===undefined ? 0 : val)
@@ -403,48 +401,50 @@
 //     return l3;
 // };
 
-// Redid with 2 arrays; Working solution
-var addTwoNumbers = function (l1, l2) {
-    let l3 = new ListNode;
-    let array1 = [];
-    let array2 = [];
-    let el1 = 0;
-    let el2 = 0;
-    let array3 = [];
-    let tenth = 0;
-    while (l1 != null) {
-        array1.push(l1.val);
-        l1 = l1.next;
-    }
-    while (l2 != null) {
-        array2.push(l2.val);
-        l2 = l2.next;
-    }
-    for (let i = 0; i < Math.max(array1.length, array2.length); i++) {
-        array1[i] ? el1 = array1[i] : el1 = 0;
-        array2[i] ? el2 = array2[i] : el2 = 0;
-        let res = el1 + el2 + tenth;
-        if (res > 9) {
-            res = res % 10;
-            tenth = 1;
-        } else {
-            tenth = 0;
-        }
-        array3.push(res);
-    }
-    if (tenth) array3.push(tenth);
-    l3.val = array3[0];
-    if (array3.length > 1) {
-        let l4 = new ListNode;
-        l3.next = l4;
-        for (let j = 1; j < array3.length; j++) {
-            l4.val = array3[j];
-            if (j > array3.length - 2) break;
-            l4.next = new ListNode;
-            l4 = l4.next;
-        }
-    }
+// // Redid with 2 arrays; Working solution
+// var addTwoNumbers = function (l1, l2) {
+//     let l3 = new ListNode;
+//     let array1 = [];
+//     let array2 = [];
+//     let el1 = 0;
+//     let el2 = 0;
+//     let array3 = [];
+//     let tenth = 0;
+//     while (l1 != null) {
+//         array1.push(l1.val);
+//         l1 = l1.next;
+//     }
+//     while (l2 != null) {
+//         array2.push(l2.val);
+//         l2 = l2.next;
+//     }
+//     for (let i = 0; i < Math.max(array1.length, array2.length); i++) {
+//         array1[i] ? el1 = array1[i] : el1 = 0;
+//         array2[i] ? el2 = array2[i] : el2 = 0;
+//         let res = el1 + el2 + tenth;
+//         if (res > 9) {
+//             res = res % 10;
+//             tenth = 1;
+//         } else {
+//             tenth = 0;
+//         }
+//         array3.push(res);
+//     }
+//     if (tenth) array3.push(tenth);
+//     l3.val = array3[0];
+//     if (array3.length > 1) {
+//         let l4 = new ListNode;
+//         l3.next = l4;
+//         for (let j = 1; j < array3.length; j++) {
+//             l4.val = array3[j];
+//             if (j > array3.length - 2) break;
+//             l4.next = new ListNode;
+//             l4 = l4.next;
+//         }
+//     }
+//     return l3;
+// };
 
-    return l3;
-
-}; 
+//
+// ------------------------------------------------------
+// Leet Code 3. Longest Substring Without Repeating Characters (Medium)
