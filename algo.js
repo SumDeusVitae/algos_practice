@@ -346,10 +346,11 @@
 // // Getting shortrest word in array
 // console.log(strs.reduce((a, b) => a.length <= b.length ? a : b));
 //
+/** 
 // ------------------------------------------------------
 // Leet Code 2. Add Two Numbers (Medium)
 
-/**
+
  * Definition for singly-linked list.
  * function ListNode(val, next) {
  *     this.val = (val===undefined ? 0 : val)
@@ -361,50 +362,56 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-function ListNode (val, next) {
-    this.val = (val === undefined ? 0 : val)
-    this.next = (next === undefined ? null : next)
-}
-var addTwoNumbers = function (l1, l2) {
-    let value1 = l1.val;
-    let value2 = l2.val;
-    let counter1 = 1;
-    let counter2 = 1;
-    let resultInt;
-    let l3 = new ListNode;
-    while (l1.next != null) {
-        l1 = l1.next;
-        value1 += l1.val * Math.pow(10, counter1);
-        counter1++;
-    }
-    while (l2.next != null) {
-        l2 = l2.next;
-        value2 += l2.val * Math.pow(10, counter2);
-        counter2++;
-    }
-    resultInt = value1 + value2;
-    console.log(resultInt)
-    let temp = resultInt % 10;
-    l3.val = temp;
-    resultInt = Math.floor(resultInt / 10);
-    if (resultInt < 1) return l3;
-    let lTemp = new ListNode;
-    l3.next = lTemp;
-    while (!(resultInt < 1)) {
-        temp = resultInt % 10;
-        resultInt = Math.floor(resultInt / 10);
-        lTemp.val = temp;
-        if (resultInt < 1) break;
-        lTemp.next = new ListNode;
-        lTemp = lTemp.next;
-    }
-    return l3;
-};
+// Not working because numbers out of int range sometimes
+// function ListNode (val, next) {
+//     this.val = (val === undefined ? 0 : val)
+//     this.next = (next === undefined ? null : next)
+// }
+// var addTwoNumbers = function (l1, l2) {
+//     let value1 = l1.val;
+//     let value2 = l2.val;
+//     let counter1 = 1;
+//     let counter2 = 1;
+//     let resultInt;
+//     let l3 = new ListNode;
+//     while (l1.next != null) {
+//         l1 = l1.next;
+//         value1 += l1.val * Math.pow(10, counter1);
+//         counter1++;
+//     }
+//     while (l2.next != null) {
+//         l2 = l2.next;
+//         value2 += l2.val * Math.pow(10, counter2);
+//         counter2++;
+//     }
+//     resultInt = value1 + value2;
+//     console.log(resultInt)
+//     let temp = resultInt % 10;
+//     l3.val = temp;
+//     resultInt = Math.floor(resultInt / 10);
+//     if (resultInt < 1) return l3;
+//     let lTemp = new ListNode;
+//     l3.next = lTemp;
+//     while (!(resultInt < 1)) {
+//         temp = resultInt % 10;
+//         resultInt = Math.floor(resultInt / 10);
+//         lTemp.val = temp;
+//         if (resultInt < 1) break;
+//         lTemp.next = new ListNode;
+//         lTemp = lTemp.next;
+//     }
+//     return l3;
+// };
 
-// HAVE TO REDO WITH ARRAY
+// Redid with 2 arrays; Working solution
 var addTwoNumbers = function (l1, l2) {
+    let l3 = new ListNode;
     let array1 = [];
     let array2 = [];
+    let el1 = 0;
+    let el2 = 0;
+    let array3 = [];
+    let tenth = 0;
     while (l1 != null) {
         array1.push(l1.val);
         l1 = l1.next;
@@ -413,6 +420,31 @@ var addTwoNumbers = function (l1, l2) {
         array2.push(l2.val);
         l2 = l2.next;
     }
+    for (let i = 0; i < Math.max(array1.length, array2.length); i++) {
+        array1[i] ? el1 = array1[i] : el1 = 0;
+        array2[i] ? el2 = array2[i] : el2 = 0;
+        let res = el1 + el2 + tenth;
+        if (res > 9) {
+            res = res % 10;
+            tenth = 1;
+        } else {
+            tenth = 0;
+        }
+        array3.push(res);
+    }
+    if (tenth) array3.push(tenth);
+    l3.val = array3[0];
+    if (array3.length > 1) {
+        let l4 = new ListNode;
+        l3.next = l4;
+        for (let j = 1; j < array3.length; j++) {
+            l4.val = array3[j];
+            if (j > array3.length - 2) break;
+            l4.next = new ListNode;
+            l4 = l4.next;
+        }
+    }
 
+    return l3;
 
-};
+}; 
