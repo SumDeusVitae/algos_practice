@@ -452,23 +452,24 @@
  * @param {string} s
  * @return {number}
  */
-// with 2 pointers\
-var lengthOfLongestSubstring = function (s) {
-    let highest = 0;
-    if (s.length <= 1) return s[0] ? 1 : 0;
-    for (let i = 0; i < s.length; i++) {
-        let ourSet = new Set;
-        ourSet.add(i);
-        for (let j = 1; j < s.length; j++) {
-            if (ourSet.has(j)) {
-                highest = Math.max(highest, ourSet.size);
-                break;
-            } else {
-                ourSet.add(j);
-            }
-        }
-    }
-    return highest;
-};
-const s = "abcabcbb"
-console.log(lengthOfLongestSubstring(s));
+// with 2 pointers Solved
+// var lengthOfLongestSubstring = function (s) {
+//     let highest = 0;
+//     if (s.length <= 1) return s[0] ? 1 : 0;
+//     for (let i = 0; i < s.length; i++) {
+//         let ourSet = new Set;
+//         ourSet.add(s[i]);
+//         for (let j = i + 1; j < s.length; j++) {
+//             if (ourSet.has(s[j])) {
+//                 highest = Math.max(highest, ourSet.size);
+//                 break;
+//             } else {
+//                 ourSet.add(s[j]);
+//                 highest = Math.max(highest, ourSet.size);
+//             }
+//         }
+//     }
+//     return highest;
+// };
+// const s = "au"
+// console.log(lengthOfLongestSubstring(s));
