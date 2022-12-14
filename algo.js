@@ -522,4 +522,4 @@
 // console.log(ar1);
 //
 // ------------------------------------------------------
-// Leet Code 4. Median of Two Sorted Arrays (Hard)
+// Leet Code 5. Longest Palindromic Substring (Medium)
