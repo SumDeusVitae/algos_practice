@@ -523,3 +523,10 @@
 //
 // ------------------------------------------------------
 // Leet Code 5. Longest Palindromic Substring (Medium)
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function (s) {
+
+};
