@@ -476,46 +476,50 @@
 //
 // ------------------------------------------------------
 // Leet Code 4. Median of Two Sorted Arrays (Hard)
+// Should try binary search once
 /**
 * @param {number[]} nums1
 * @param {number[]} nums2
 * @return {number}
 */
-var findMedianSortedArrays = function (nums1, nums2) {
-    let merged = [];
-    let index1 = 0;
-    let index2 = 0;
-    let current = 0;
-    while (current < (nums1.length + nums2.length)) {
+// var findMedianSortedArrays = function (nums1, nums2) {
+//     let merged = [];
+//     let index1 = 0;
+//     let index2 = 0;
+//     let current = 0;
+//     while (current < (nums1.length + nums2.length)) {
 
-        let isArr1Depleted = index1 >= nums1.length;
-        let isArr2Depleted = index2 >= nums2.length;
+//         let isArr1Depleted = index1 >= nums1.length;
+//         let isArr2Depleted = index2 >= nums2.length;
 
-        if (!isArr1Depleted && (isArr2Depleted || (nums1[index1] < nums2[index2]))) {
-            merged[current] = nums1[index1];
-            index1++;
-        } else {
-            merged[current] = nums2[index2];
-            index2++;
-        }
+//         if (!isArr1Depleted && (isArr2Depleted || (nums1[index1] < nums2[index2]))) {
+//             merged[current] = nums1[index1];
+//             index1++;
+//         } else {
+//             merged[current] = nums2[index2];
+//             index2++;
+//         }
 
-        current++;
-    }
+//         current++;
+//     }
 
-    let mid = merged.length / 2;
-    if (merged.length < 2) return merged[0];
-    let res;
-    if (mid == Math.ceil(mid)) {
-        res = (merged[mid - 1] + merged[mid]) / 2;
+//     let mid = merged.length / 2;
+//     if (merged.length < 2) return merged[0];
+//     let res;
+//     if (mid == Math.ceil(mid)) {
+//         res = (merged[mid - 1] + merged[mid]) / 2;
 
-    } else {
-        res = merged[Math.floor(mid)];
-    }
-    if (!res) return 0;
-    console.log(merged)
-    console.log(mid)
-    return res;
-};
-const ar1 = 3 % 10
-const ar2 = [0, 1, 2]
-console.log(ar1);
+//     } else {
+//         res = merged[Math.floor(mid)];
+//     }
+//     if (!res) return 0;
+//     console.log(merged)
+//     console.log(mid)
+//     return res;
+// };
+// const ar1 = 3 % 10
+// const ar2 = [0, 1, 2]
+// console.log(ar1);
+//
+// ------------------------------------------------------
+// Leet Code 4. Median of Two Sorted Arrays (Hard)
