@@ -528,7 +528,26 @@
  * @return {string}
  */
 var longestPalindrome = function (s) {
-    // two pointers, we will come from right to left and from left to right, on each styep checking if currrent part palidrom
-    // if palidrom than we check if it bigger than stored if bigger, than we replace if smaller than continue
-    // actually extra step we can checking length with our preexistant palindrome
+    let longest = s[0];
+    for (let l = 0; l < s.length - 1; l++) {
+        for (let r = l + 2; r < s.length + 1; r++) {
+            let cur = s.slice(l, r);
+            if (cur.length > longest.length && palindrome(cur)) {
+                longest = cur;
+            }
+        }
+    }
+    return longest;
 };
+var palindrome = function (str) {
+    let length = str.length;
+    if (length < 1) return false;
+    if (length / 2 != Math.ceil(length / 2)) {
+        if (str.slice(0, Math.floor(length / 2)) == str.slice(Math.ceil(length / 2), length + 1).split('').reverse().join('')) return true
+    } else {
+        if (str.slice(0, length / 2) == str.slice(length / 2, length + 1).split('').reverse().join('')) return true;
+    }
+    return false;
+}
+var s = 'savasas';
+console.log(longestPalindrome(s));
