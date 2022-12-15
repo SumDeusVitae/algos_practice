@@ -528,5 +528,7 @@
  * @return {string}
  */
 var longestPalindrome = function (s) {
-
+    // two pointers, we will come from right to left and from left to right, on each styep checking if currrent part palidrom
+    // if palidrom than we check if it bigger than stored if bigger, than we replace if smaller than continue
+    // actually extra step we can checking length with our preexistant palindrome
 };
