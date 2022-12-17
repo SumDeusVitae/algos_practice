@@ -523,10 +523,7 @@
 //
 // ------------------------------------------------------
 // Leet Code 5. Longest Palindromic Substring (Medium)
-/**
- * @param {string} s
- * @return {string}
- */
+// Need to look into
 var longestPalindrome = function (s) {
     let longest = s[0];
     for (let l = 0; l < s.length - 1; l++) {
@@ -543,11 +540,18 @@ var palindrome = function (str) {
     let length = str.length;
     if (length < 1) return false;
     if (length / 2 != Math.ceil(length / 2)) {
-        if (str.slice(0, Math.floor(length / 2)) == str.slice(Math.ceil(length / 2), length + 1).split('').reverse().join('')) return true
+        if (str.slice(0, Math.floor(length / 2)) == reverseString(str.slice(Math.ceil(length / 2), length + 1))) return true
     } else {
-        if (str.slice(0, length / 2) == str.slice(length / 2, length + 1).split('').reverse().join('')) return true;
+        if (str.slice(0, length / 2) == reverseString(str.slice(length / 2, length + 1))) return true;
     }
     return false;
+}
+function reverseString (str) {
+    var newString = "";
+    for (var i = str.length - 1; i >= 0; i--) {
+        newString += str[i];
+    }
+    return newString;
 }
 var s = 'savasas';
 console.log(longestPalindrome(s));
