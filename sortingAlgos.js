@@ -81,6 +81,9 @@
 // Merge Sort
 function mergeSort (array) {
     // Only change code below this line
+    let i = 0,
+        j = 0,
+        mergedArr = [];
     return array;
     // Only change code above this line
 }
