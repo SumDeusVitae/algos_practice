@@ -81,9 +81,24 @@
 // Merge Sort
 function mergeSort (array) {
     // Only change code below this line
-    let i = 0,
-        j = 0,
-        mergedArr = [];
-    return array;
+    if (array.length == 1) {
+        return array;
+    } else {
+        const left = array.splice(0, array.length / 2);
+        return merge(mergeSort(left), mergeSort(array));
+    }
     // Only change code above this line
 }
+function merge (ar1, ar2) {
+    let merged = [];
+    while (ar1.length & ar2.length) {
+        if (ar1[0] < ar2[0]) {
+            merged.push(ar1.shift());
+        } else {
+            merged.push(ar2.shift());
+        }
+    }
+    return [...merged, ...ar1, ...ar2]
+}
+const x = [1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92];
+console.log(mergeSort(x));
