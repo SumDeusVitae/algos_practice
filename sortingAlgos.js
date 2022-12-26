@@ -52,7 +52,7 @@
 //
 // ---------------------------------------------------------
 //
-// // Quick Sort
+// // Quick Sort NEED REPEAT AND DO DIFFERENTLY
 // function quickSort (array) {
 //     if (array.length === 0) {
 //         return [];
