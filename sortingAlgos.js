@@ -52,7 +52,7 @@
 //
 // ---------------------------------------------------------
 //
-// // Quick Sort NEED REPEAT AND DO DIFFERENTLY
+// // Quick Sort NEED REPEAT AND DO DIFFERENTLY. DEF mby few more
 // function quickSort (array) {
 //     if (array.length === 0) {
 //         return [];
