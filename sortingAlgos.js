@@ -42,7 +42,7 @@
 //     for (let i = 0; i < array.length; i++) {
 //         let j = i;
 //         while (j > 0 && array[j - 1] > array[j]) {
-//             [array[j], array[j - 1]] = [array[j - 1], array[j]];
+//         [array[j], array[j - 1]] = [array[j - 1], array[j]];
 //             j--;
 //         }
 //     }
@@ -53,6 +53,11 @@
 // ---------------------------------------------------------
 //
 // // Quick Sort NEED REPEAT AND DO DIFFERENTLY. DEF mby few more
+function quickSort (array) {
+
+}
+
+
 // function quickSort (array) {
 //     if (array.length === 0) {
 //         return [];
