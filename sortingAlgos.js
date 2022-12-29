@@ -54,6 +54,15 @@
 //
 // // Quick Sort NEED REPEAT AND DO DIFFERENTLY. DEF mby few more
 function quickSort (array) {
+    const pivotValue = array[length];
+    let pivotIndex = 0;
+    for (let i = pivotIndex; i < pivotValue; i++) {
+        if (array[i] < pivotValue) {
+            [array[i], array[pivotIndex]] = [array[pivotIndex], array[i]];
+            pivotIndex++;
+        }
+    }
+
 
 }
 
