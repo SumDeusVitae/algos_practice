@@ -62,7 +62,7 @@ function quickSort (array) {
             pivotIndex++;
         }
     }
-
+    // Thatmwas pivot, need to rethink it
 
 }
 
