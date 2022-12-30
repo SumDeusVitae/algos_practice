@@ -53,6 +53,7 @@
 // ---------------------------------------------------------
 //
 // // Quick Sort NEED REPEAT AND DO DIFFERENTLY. DEF mby few more
+// Quick sort with single array as entrance
 function quickSort (array) {
     const pivotValue = array[length];
     let pivotIndex = 0;
