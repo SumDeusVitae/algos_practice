@@ -555,3 +555,4 @@ function reverseString (str) {
 }
 var s = 'savasas';
 console.log(longestPalindrome(s));
+// solved
