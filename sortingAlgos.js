@@ -172,6 +172,7 @@ class MaxHeap {
             parent = this.parentIndex(index);
         }
     }
+    // delete function in class
     delete () {
         let item = this.heap.shift();
         this.heap.unshift(this.heap.pop());
@@ -192,3 +193,4 @@ class MaxHeap {
     }
 
 }
+// Heap Sort not implemented yet
