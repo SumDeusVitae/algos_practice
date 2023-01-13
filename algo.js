@@ -524,37 +524,37 @@
 // ------------------------------------------------------
 // Leet Code 5. Longest Palindromic Substring (Medium)
 // Need to look into
-var longestPalindrome = function (s) {
-    let longest = s[0];
-    for (let l = 0; l < s.length - 1; l++) {
-        for (let r = l + 2; r < s.length + 1; r++) {
-            let cur = s.slice(l, r);
-            if (cur.length > longest.length && palindrome(cur)) {
-                longest = cur;
-            }
-        }
-    }
-    return longest;
-};
-var palindrome = function (str) {
-    let length = str.length;
-    if (length < 1) return false;
-    if (length / 2 != Math.ceil(length / 2)) {
-        if (str.slice(0, Math.floor(length / 2)) == reverseString(str.slice(Math.ceil(length / 2), length + 1))) return true
-    } else {
-        if (str.slice(0, length / 2) == reverseString(str.slice(length / 2, length + 1))) return true;
-    }
-    return false;
-}
-function reverseString (str) {
-    var newString = "";
-    for (var i = str.length - 1; i >= 0; i--) {
-        newString += str[i];
-    }
-    return newString;
-}
-var s = 'savasas';
-console.log(longestPalindrome(s));
+// var longestPalindrome = function (s) {
+//     let longest = s[0];
+//     for (let l = 0; l < s.length - 1; l++) {
+//         for (let r = l + 2; r < s.length + 1; r++) {
+//             let cur = s.slice(l, r);
+//             if (cur.length > longest.length && palindrome(cur)) {
+//                 longest = cur;
+//             }
+//         }
+//     }
+//     return longest;
+// };
+// var palindrome = function (str) {
+//     let length = str.length;
+//     if (length < 1) return false;
+//     if (length / 2 != Math.ceil(length / 2)) {
+//         if (str.slice(0, Math.floor(length / 2)) == reverseString(str.slice(Math.ceil(length / 2), length + 1))) return true
+//     } else {
+//         if (str.slice(0, length / 2) == reverseString(str.slice(length / 2, length + 1))) return true;
+//     }
+//     return false;
+// }
+// function reverseString (str) {
+//     var newString = "";
+//     for (var i = str.length - 1; i >= 0; i--) {
+//         newString += str[i];
+//     }
+//     return newString;
+// }
+// var s = 'savasas';
+// console.log(longestPalindrome(s));
 //
 // ------------------------------------------------------
 // Leet Code 6. Zigzag Conversion (Medium)
@@ -563,24 +563,53 @@ console.log(longestPalindrome(s));
  * @param {number} numRows
  * @return {string}
  */
-var convert = function (s, numRows) {
-    if (s == null && numRows <= 0) {
-        return '';
-    }
-    if (numRows == 1) {
-        return s;
-    }
-    let res = '';
-    const step = 2 * numRows - 2;
+// var convert = function (s, numRows) {
+//     if (s == null && numRows <= 0) {
+//         return '';
+//     }
+//     if (numRows == 1) {
+//         return s;
+//     }
+//     let res = '';
+//     const step = 2 * numRows - 2;
 
-    for (let i = 0; i < numRows; i++) {
-        for (let j = i; j < s.length; j += step) {
-            res += s[j];
-            if (i != 0 && i != numRows - 1 && (j + step - 2 * i) < s.length) {
-                res += s[j + step - 2 * i]
-            }
-        }
-    }
-    return res;
+//     for (let i = 0; i < numRows; i++) {
+//         for (let j = i; j < s.length; j += step) {
+//             res += s[j];
+//             if (i != 0 && i != numRows - 1 && (j + step - 2 * i) < s.length) {
+//                 res += s[j + step - 2 * i]
+//             }
+//         }
+//     }
+//     return res;
 
+// };
+//
+// ------------------------------------------------------
+// Leet Code 7. Reverse Integer (Medium)
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function (x) {
+    let res = 0;
+    if (x == 0) return x;
+    let sign = 1;
+    if (x < 0) {
+        x *= -1;
+        sign = -1;
+    }
+    while (x > 0) {
+        res *= 10;
+        let temp = x % 10;
+        res += temp;
+        x = Math.floor(x / 10);
+    }
+    if (res < 2147483647) {
+        return res * sign;
+    } else {
+        return 0;
+    }
 };
+const x = -123;
+console.log(reverse(x));
