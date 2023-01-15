@@ -591,25 +591,25 @@
  * @param {number} x
  * @return {number}
  */
-var reverse = function (x) {
-    let res = 0;
-    if (x == 0) return x;
-    let sign = 1;
-    if (x < 0) {
-        x *= -1;
-        sign = -1;
-    }
-    while (x > 0) {
-        res *= 10;
-        let temp = x % 10;
-        res += temp;
-        x = Math.floor(x / 10);
-    }
-    if (res < 2147483647) {
-        return res * sign;
-    } else {
-        return 0;
-    }
-};
-const x = -123;
-console.log(reverse(x));
+// var reverse = function (x) {
+//     let res = 0;
+//     if (x == 0) return x;
+//     let sign = 1;
+//     if (x < 0) {
+//         x *= -1;
+//         sign = -1;
+//     }
+//     while (x > 0) {
+//         res *= 10;
+//         let temp = x % 10;
+//         res += temp;
+//         x = Math.floor(x / 10);
+//     }
+//     if (res < 2147483647) {
+//         return res * sign;
+//     } else {
+//         return 0;
+//     }
+// };
+// const x = -123;
+// console.log(reverse(x));
