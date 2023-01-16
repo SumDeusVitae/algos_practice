@@ -617,3 +617,10 @@
 //
 // ------------------------------------------------------
 // Leet Code 8. String to Integer (atoi) (Medium)
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var myAtoi = function (s) {
+
+};
