@@ -622,5 +622,5 @@
  * @return {number}
  */
 var myAtoi = function (s) {
-
+    for (let i = 0; i < s.length; i++);
 };
