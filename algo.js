@@ -621,46 +621,46 @@
  * @param {string} s
  * @return {number}
  */
-function is_numeric_char (c) { return /\d/.test(c); }
+// function is_numeric_char (c) { return /\d/.test(c); }
 
-var myAtoi = function (s) {
+// var myAtoi = function (s) {
 
-    let sign = 1;
-    let countPlus = 0;
-    let countMinus = 0;
-    let res = 0;
-    let dig = 0;
-    function not_allowed (c) {
-        switch (c) {
-            case '-':
-                countMinus++;
-                return true;
-            case '+':
-                countPlus++;
-                return true;
-            case ' ':
-                if (countPlus || countMinus) { return false } else { return true }
-            default:
-                return is_numeric_char(c)
-        }
-    }
-    for (let i = 0; i < s.length; i++) {
-        if (!not_allowed(s.charAt(i)))
-            return res;
-        if (s.charAt(i) == "-") {
-            sign = -1;
-        }
-        while (i < s.length && is_numeric_char(s.charAt(i))) {
-            console.log(`Count Minus=${countMinus} and Count Plus=${countPlus}`);
-            if (countPlus && countMinus || countPlus > 1 || countMinus > 1) return 0;
-            dig++;
-            res += s.charAt(i);
-            i++;
-            if (res > 2147483647) return sign == 1 ? 2147483647 : -2147483648;
-        }
-        if (dig > 0) return res * sign;
-    }
-    return res * sign;
-};
-const s = "-+12";
-console.log(myAtoi(s));
+//     let sign = 1;
+//     let countPlus = 0;
+//     let countMinus = 0;
+//     let res = 0;
+//     let dig = 0;
+//     function not_allowed (c) {
+//         switch (c) {
+//             case '-':
+//                 countMinus++;
+//                 return true;
+//             case '+':
+//                 countPlus++;
+//                 return true;
+//             case ' ':
+//                 if (countPlus || countMinus) { return false } else { return true }
+//             default:
+//                 return is_numeric_char(c)
+//         }
+//     }
+//     for (let i = 0; i < s.length; i++) {
+//         if (!not_allowed(s.charAt(i)))
+//             return res;
+//         if (s.charAt(i) == "-") {
+//             sign = -1;
+//         }
+//         while (i < s.length && is_numeric_char(s.charAt(i))) {
+//             console.log(`Count Minus=${countMinus} and Count Plus=${countPlus}`);
+//             if (countPlus && countMinus || countPlus > 1 || countMinus > 1) return 0;
+//             dig++;
+//             res += s.charAt(i);
+//             i++;
+//             if (res > 2147483647) return sign == 1 ? 2147483647 : -2147483648;
+//         }
+//         if (dig > 0) return res * sign;
+//     }
+//     return res * sign;
+// };
+// const s = "-+12";
+// console.log(myAtoi(s));
