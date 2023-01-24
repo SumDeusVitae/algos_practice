@@ -667,5 +667,23 @@
 //
 // ------------------------------------------------------
 // Leet Code 12. Integer to Roman (Medium)
+/**
+ * @param {number} num
+ * @return {string}
+ */
+var intToRoman = function (num) {
+    let len = num.toString(10).length;
 
+    if (len > 1) {
+        const temp = Math.floor(num / Math.pow(10, len - 1));
+        console.log(temp * 10);
+        switch (temp) {
+            case 
+        }
+    }
+};
 
+const y = 223124;
+const x = 100;
+console.log(Math.floor(y / 100000));
+intToRoman(5000);
