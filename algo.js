@@ -671,19 +671,22 @@
  * @param {number} num
  * @return {string}
  */
-var intToRoman = function (num) {
-    let len = num.toString(10).length;
+// // Creating our Map with Roman Digits
+// const romanDigits = new Map;
+// romanDigits.set(1000, 'M').set(900, "CM").set(500, "D").set(400, "CD").set(100, "C").set(90, "XC").set(50, "L").set(40, "XL").set(10, "X").set(9, "IX").set(5, "V").set(4, "IV").set(1, "I");
+// var intToRoman = function (num) {
+//     let res = '';
+//     // Getting Arrray of keys from our Roman Digits Map and looping thru it;
+//     for (const key of romanDigits.keys(romanDigits)) {
+//         // Searching for for key which is smaller or equal to our num, btw starting from the biggest value until last, since we know how our map organised
+//         while (num >= key) {
+//             // When we did find mnatch, we concatenating Roman Value with our res variable
+//             res += romanDigits.get(key);
+//             // Reducing num by the value we used
+//             num -= key;
+//         }
+//     }
+//     return res;
+// };
 
-    if (len > 1) {
-        const temp = Math.floor(num / Math.pow(10, len - 1));
-        console.log(temp * 10);
-        switch (temp) {
 
-        }
-    }
-};
-
-const y = 223124;
-const x = 100;
-console.log(Math.floor(y / 100000));
-intToRoman(5000);
