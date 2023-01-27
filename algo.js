@@ -688,9 +688,47 @@
 //     }
 //     return res;
 // };
-const dessert = { type: 'pie' };
-dessert.type = 'pudding';
+//
+// ------------------------------------------------------
+// Leet Code 15. 3Sum(Medium)
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+//  Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 
-const seconds = dessert;
-seconds.type = 'fruit';
-console.log(dessert.type);
+//  Notice that the solution set must not contain duplicate triplets.
+
+
+
+var threeSum = function (nums) {
+    if (nums.length < 3) return 0;
+    let result = [];
+    for (let i = 0; i < nums.length - 2; i++) {
+        for (let j = i + 1; j < nums.length - 1; j++) {
+            for (let k = j + 1; k < nums.length; k++) {
+                if (nums[i] + nums[j] + nums[k] === 0) {
+                    let cur = [nums[i], nums[j], nums[k]];
+                    cur.sort();
+                    // console.log([nums[i], nums[j], nums[k]]);
+                    if (result.length < 1) {
+                        result.push(cur);
+                    }
+                    else {
+                        if (result.filter(x => x.includes(nums[i] && nums[j] && nums[k])).length) {
+                            continue;
+                        } else {
+                            result.push(cur);
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+    return result;
+};
+const nums = [-1, 0, 1, 2, -1, -4];
+// const res = [[-1, 0, 1], [-1, 0, 1]];
+const expected = [[-1, -1, 2], [-1, 0, 1]];
+console.log(threeSum(nums));
