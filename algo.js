@@ -715,10 +715,8 @@ var threeSum = function (nums) {
                         result.push(cur);
                     }
                     else {
-                        if (result.filter(x => x.includes(nums[i] && nums[j] && nums[k])).length) {
-                            continue;
-                        } else {
-                            result.push(cur);
+                        if (!res.filter(x => x.includes(nums[i]) && x.includes(nums[j]) && x.includes(nums[k]))) {
+                            result.push(cur)
                         }
                     }
 
@@ -729,6 +727,7 @@ var threeSum = function (nums) {
     return result;
 };
 const nums = [-1, 0, 1, 2, -1, -4];
-// const res = [[-1, 0, 1], [-1, 0, 1]];
+const res = [[-1, 0, 1]];
 const expected = [[-1, -1, 2], [-1, 0, 1]];
+// console.log(res.filter(x => x.includes(nums[0]) && x.includes(nums[1]) && x.includes(nums[2])));
 console.log(threeSum(nums));
