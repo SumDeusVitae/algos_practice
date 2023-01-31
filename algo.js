@@ -695,39 +695,31 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var threeSum = function (nums) {
-    const results = [];
-    nums.sort((a, b) => a - b);
-    for (let i = 0; i < nums.length - 2; i++) {
-        //  don't get it
-        if (nums[i] > 0) break;
-        // skip duplicates
-        if (i > 0 && nums[i] === nums[i - 1]) continue;
-        let j = i + 1;
-        let k = nums.length - 1;
-        while (j < k) {
-            let sum = nums[i] + nums[j] + nums[k];
-            if (sum === 0) {
-                results.push([nums[i], nums[j], nums[k]]);
-                while (nums[j] === nums[j + 1]) j++;
-                while (nums[k] === nums[k - 1]) k--;
-                j++;
-                k--;
-            } else if (sum < 0) {
-                j++;
-            } else {
-                k--
-            }
-        }
-    }
-    return results;
-};
-const nums = [-1, 0, 1, 2, -1, -4];
-const res = [[-1, 0, 1]];
-const expected = [[-1, -1, 2], [-1, 0, 1]];
-// console.log(res.filter(x => x.includes(nums[0]) && x.includes(nums[1]) && x.includes(nums[2])));
-// console.log(threeSum(nums));
-console.log(nums);
+// var threeSum = function (nums) {
+//     const results = [];
+//     nums.sort((a, b) => a - b);
+//     for (let i = 0; i < nums.length - 2; i++) {
+//         //  don't get it
+//         if (nums[i] > 0) break;
+//         // skip duplicates
+//         if (i > 0 && nums[i] === nums[i - 1]) continue;
+//         let j = i + 1;
+//         let k = nums.length - 1;
+//         while (j < k) {
+//             let sum = nums[i] + nums[j] + nums[k];
+//             if (sum === 0) {
+//                 results.push([nums[i], nums[j], nums[k]]);
+//                 while (nums[j] === nums[j + 1]) j++;
+//                 while (nums[k] === nums[k - 1]) k--;
+//                 j++;
+//                 k--;
+//             } else if (sum < 0) {
+//                 j++;
+//             } else {
+//                 k--
+//             }
+//         }
+//     }
+//     return results;
+// };
 
-nums.sort((a, b) => a - b);
-console.log(nums);
