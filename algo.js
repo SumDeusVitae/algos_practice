@@ -749,32 +749,36 @@
 // };
 //
 // ------------------------------------------------------
-// Leet Code 17. Letter Combinations of a Phone Number
-var letterCombinations = function (digits) {
-    if (!digits) return []
-    const numbers = {
-        '2': 'abc',
-        '3': 'def',
-        '4': 'ghi',
-        '5': 'jkl',
-        '6': 'mno',
-        '7': 'pqrs',
-        '8': 'tuv',
-        '9': 'wxyz',
-    };
-    if (digits.toString().length == 1) return [...numbers[digits]];
-    let iterating = (num) => {
-        let arr = [];
-        num = num.toString();
-        if (num.length == 1) return numbers[num];
-        let first = num.slice(0, 1);
-        let others = iterating(num.slice(1));
-        for (let i = 0; i < numbers[first].length; i++) {
-            for (let j = 0; j < others.length; j++) {
-                arr.push(numbers[first].charAt(i) + others.charAt(j))
-            }
-        }
-        return arr;
-    }
-    return iterating(digits)
+// Leet Code 17. Letter Combinations of a Phone Number(Medium)
+// var letterCombinations = function(digits) {
+//     if(!digits) return []
+//     const numbers = {
+//         2: ['a', 'b', 'c'],
+//         3: ['d', 'e', 'f'],
+//         4: ['g', 'h', 'i'],
+//         5: ['j', 'k', 'l'],
+//         6: ['m', 'n', 'o'],
+//         7: ['p', 'q', 'r', 's'],
+//         8: ['t', 'u', 'v'],
+//         9: ['w', 'x', 'y', 'z']
+//         };
+//     let iterating = (nums) => {
+//         let arr= [];
+//         if(nums.length == 1) return numbers[nums];
+//         let first = nums.slice(0,1);
+//         let others = iterating(nums.slice(1));
+//         for(let i = 0; i <numbers[first].length;i++){
+//             for(let j = 0; j<others.length;j++){
+//                 arr.push(numbers[first][i]+others[j])
+//             }
+//         }
+//         return arr;
+//     }
+//     return iterating(digits)
+// };
+//
+// ------------------------------------------------------
+// Leet Code 18. 4Sum (Medium)
+var fourSum = function (nums, target) {
+
 };
