@@ -780,5 +780,6 @@
 // ------------------------------------------------------
 // Leet Code 18. 4Sum (Medium)
 var fourSum = function (nums, target) {
-
+    const result = [];
+    nums.sort((a, b) => a - b);
 };
