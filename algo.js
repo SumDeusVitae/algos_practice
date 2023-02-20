@@ -780,7 +780,37 @@
 // ------------------------------------------------------
 // Leet Code 18. 4Sum (Medium)
 var fourSum = function (nums, target) {
-    const result = [];
+    let result = [];
     nums.sort((a, b) => a - b);
-    //START DOING SOMETHING!!!!
+    for (let i = 0; i < nums.length - 3; i++) {
+        for (let j = i + 1; j < nums.length - 2; j++) {
+            let first = nums[i],
+                second = nums[j],
+                left = j + 1,
+                right = nums.length - 1;
+            while (left < right) {
+                let sum = first + second + nums[left] + nums[right];
+                if (sum < target) {
+                    left++;
+                } else if (sum > target) {
+                    right--;
+                }
+                else {
+                    result.push([first, second, nums[left], nums[right]]);
+                    while (nums[left] == nums[left + 1]) left++;
+                    while (nums[right] == nums[right - 1]) right--;
+                    left++;
+                    right--;
+                }
+            }
+            while (nums[j] == nums[j + 1]) j++;
+        }
+        while (nums[i] == nums[i + 1]) i++;
+    }
+    return result;
 };
+const nums =
+    [1, 0, -1, 0, -2, 2];
+const target =
+    0;
+console.log(fourSum(nums, target));
