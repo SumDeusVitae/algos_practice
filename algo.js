@@ -779,38 +779,93 @@
 //
 // ------------------------------------------------------
 // Leet Code 18. 4Sum (Medium)
-var fourSum = function (nums, target) {
+// var fourSum = function (nums, target) {
+//     let result = [];
+//     nums.sort((a, b) => a - b);
+//     for (let i = 0; i < nums.length - 3; i++) {
+//         for (let j = i + 1; j < nums.length - 2; j++) {
+//             let first = nums[i],
+//                 second = nums[j],
+//                 left = j + 1,
+//                 right = nums.length - 1;
+//             while (left < right) {
+//                 let sum = first + second + nums[left] + nums[right];
+//                 if (sum < target) {
+//                     left++;
+//                 } else if (sum > target) {
+//                     right--;
+//                 }
+//                 else {
+//                     result.push([first, second, nums[left], nums[right]]);
+//                     while (nums[left] == nums[left + 1]) left++;
+//                     while (nums[right] == nums[right - 1]) right--;
+//                     left++;
+//                     right--;
+//                 }
+//             }
+//             while (nums[j] == nums[j + 1]) j++;
+//         }
+//         while (nums[i] == nums[i + 1]) i++;
+//     }
+//     return result;
+// };
+//
+// ------------------------------------------------------
+// Leet Code 19. Remove Nth Node From End of List (Medium)
+// var removeNthFromEnd = function (head, n) {
+//     let fast = slow = head;
+//     while (n >= 1) {
+//         fast = fast.next;
+//         n--;
+//     }
+//     if (fast === null) {
+//         head = head.next;
+//     } else {
+//         while (fast.next !== null) {
+//             slow = slow.next;
+//             fast = fast.next;
+//         }
+//         slow.next = slow.next.next;
+//     }
+//     return head;
+// };
+//
+// ------------------------------------------------------
+// Leet Code 20. Valid Parentheses
+// var isValid = function (s) {
+//     const lib = {
+//         "(": ")",
+//         "[": "]",
+//         "{": "}"
+//     }
+//     if (s.length % 2 === 1) return false;
+//     if (s.charAt(0) === ']' || s.charAt(0) === ')' || s.charAt(0) === '}') return false;
+//     if (s.charAt(s.length - 1) == '[' || s.charAt(s.length - 1) == '(' || s.charAt(s.length - 1) == '{') return false;
+//     let stack = [];
+
+//     for (let i = 0; i < s.length; i++) {
+//         if (s.charAt(i) === '[' || s.charAt(i) === '(' || s.charAt(i) === '{') {
+//             stack.push(s.charAt(i))
+//         } else if (lib[stack.pop()] !== s[i]) {
+//             return false
+//         }
+//     }
+//     return stack.length === 0;
+// };
+//
+// ------------------------------------------------------
+// Leet Code 22. Generate Parentheses (Medium)
+var generateParenthesis = function (n) {
     let result = [];
-    nums.sort((a, b) => a - b);
-    for (let i = 0; i < nums.length - 3; i++) {
-        for (let j = i + 1; j < nums.length - 2; j++) {
-            let first = nums[i],
-                second = nums[j],
-                left = j + 1,
-                right = nums.length - 1;
-            while (left < right) {
-                let sum = first + second + nums[left] + nums[right];
-                if (sum < target) {
-                    left++;
-                } else if (sum > target) {
-                    right--;
-                }
-                else {
-                    result.push([first, second, nums[left], nums[right]]);
-                    while (nums[left] == nums[left + 1]) left++;
-                    while (nums[right] == nums[right - 1]) right--;
-                    left++;
-                    right--;
-                }
-            }
-            while (nums[j] == nums[j + 1]) j++;
+    let iteration = (str, open, close) => {
+        if (open > n || close > n || close > open) return;
+        if (str.length == n * 2 && open == close) {
+            result.push(str)
+            return;
         }
-        while (nums[i] == nums[i + 1]) i++;
+        iteration(str + '(', open + 1, close);
+        iteration(str + ')', open, close + 1);
     }
+    iteration('', 0, 0)
     return result;
 };
-const nums =
-    [1, 0, -1, 0, -2, 2];
-const target =
-    0;
-console.log(fourSum(nums, target));
