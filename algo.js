@@ -855,17 +855,30 @@
 //
 // ------------------------------------------------------
 // Leet Code 22. Generate Parentheses (Medium)
-var generateParenthesis = function (n) {
+// var generateParenthesis = function (n) {
+//     let result = [];
+//     let iteration = (str, open, close) => {
+//         if (open > n || close > n || close > open) return;
+//         if (str.length == n * 2 && open == close) {
+//             result.push(str)
+//             return;
+//         }
+//         iteration(str + '(', open + 1, close);
+//         iteration(str + ')', open, close + 1);
+//     }
+//     iteration('', 0, 0)
+//     return result;
+// };
+// ------------------------------------------------------
+// Leet Code 22. Generate Parentheses (Hard)
+var mergeKLists = function (lists) {
     let result = [];
-    let iteration = (str, open, close) => {
-        if (open > n || close > n || close > open) return;
-        if (str.length == n * 2 && open == close) {
-            result.push(str)
-            return;
+    let first;
+    for (let i = 0; i < lists.length; i++) {
+        if (typeof first != 'number' && lists[i][0] < first) {
+            first = lists[i][0];
+            lists[i] = lists[i][0].next;
         }
-        iteration(str + '(', open + 1, close);
-        iteration(str + ')', open, close + 1);
+        console.log(first);
     }
-    iteration('', 0, 0)
-    return result;
 };
