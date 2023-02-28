@@ -869,16 +869,10 @@
 //     iteration('', 0, 0)
 //     return result;
 // };
+//
 // ------------------------------------------------------
-// Leet Code 22. Generate Parentheses (Hard)
+// Leet Code 23. Merge k Sorted Lists (Hard)
 var mergeKLists = function (lists) {
-    let result = [];
-    let first;
-    for (let i = 0; i < lists.length; i++) {
-        if (typeof first != 'number' && lists[i][0] < first) {
-            first = lists[i][0];
-            lists[i] = lists[i][0].next;
-        }
-        console.log(first);
-    }
+    console.log(lists[0])
+    // devide and conquere
 };
