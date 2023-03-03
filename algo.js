@@ -910,11 +910,12 @@
 //
 // ------------------------------------------------------
 // Leet Code  Swap Nodes in Pairs (Medium)
-var swapPairs = function (head) {
-    let temp = head;
-    while (temp !== null && temp.next !== null) {
-        [temp.val, temp.next.val] = [temp.next.val, temp.val];
-        temp = temp.next.next;
-    }
-    return head;
-};
+// var swapPairs = function (head) {
+//     let temp = head;
+//     while (temp !== null && temp.next !== null) {
+//         [temp.val, temp.next.val] = [temp.next.val, temp.val];
+//         temp = temp.next.next;
+//     }
+//     return head;
+
+// };
