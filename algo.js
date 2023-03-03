@@ -919,3 +919,13 @@
 //     return head;
 
 // };
+var swapPairs = function (head) {
+    let temp, temp1 = head;
+    while (temp !== null && temp.next !== null) {
+        temp1 = temp;
+        temp = temp.next;
+        temp.next = temp1;
+        temp = temp.next.next;
+    }
+    return head;
+};
