@@ -872,7 +872,49 @@
 //
 // ------------------------------------------------------
 // Leet Code 23. Merge k Sorted Lists (Hard)
-var mergeKLists = function (lists) {
-    console.log(lists[0])
-    // devide and conquere
+// Method 1head an tail
+// var mergeKLists = function (lists) {
+//     if (lists.length === 0) {
+//         return null;
+//     }
+//     while (lists.length > 1) {
+//         let a = lists.shift();
+//         let b = lists.shift();
+//         const h = merger(a, b);
+//         lists.push(h);
+//     }
+//     return lists[0];
+// };
+
+// var merger = function (a, b) {
+//     const res = new ListNode(0);
+//     let temp = res;
+//     while (a !== null && b !== null) {
+//         if (a.val < b.val) {
+//             temp.next = a;
+//             a = a.next;
+//         } else {
+//             temp.next = b;
+//             b = b.next;
+//         }
+//         temp = temp.next;
+//     }
+//     if (a !== null) {
+//         temp.next = a;
+//     }
+//     if (b !== null) {
+//         temp.next = b;
+//     }
+//     return res.next;
+// }
+//
+// ------------------------------------------------------
+// Leet Code  Swap Nodes in Pairs (Medium)
+var swapPairs = function (head) {
+    let temp = head;
+    while (temp !== null && temp.next !== null) {
+        [temp.val, temp.next.val] = [temp.next.val, temp.val];
+        temp = temp.next.next;
+    }
+    return head;
 };
