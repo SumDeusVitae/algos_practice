@@ -909,7 +909,7 @@
 // }
 //
 // ------------------------------------------------------
-// Leet Code  Swap Nodes in Pairs (Medium)
+// Leet Code 24. Swap Nodes in Pairs (Medium)
 // var swapPairs = function (head) {
 //     let temp = head;
 //     while (temp !== null && temp.next !== null) {
@@ -919,13 +919,25 @@
 //     return head;
 
 // };
-var swapPairs = function (head) {
-    let temp, temp1 = head;
-    while (temp !== null && temp.next !== null) {
-        temp1 = temp;
-        temp = temp.next;
-        temp.next = temp1;
-        temp = temp.next.next;
-    }
-    return head;
-};
+//
+// ------------------------------------------------------
+// Leet Code 25. Reverse Nodes in k-Group (Hard)
+// var reverseKGroup = function (head, k) {
+//     let stack = [];
+//     let newNode = new ListNode(-1);
+//     let temp = newNode;
+//     while (head) {
+//         for (let i = 0; i < k && head; i++) {
+//             stack.push(head);
+//             head = head.next;
+//         }
+//         if (stack.length === k) {
+//             while (stack.length > 0) {
+//                 temp.next = stack.pop();
+//                 temp = temp.next;
+//             }
+//             temp.next = head;
+//         }
+//     }
+//     return newNode.next;
+// };
