@@ -941,3 +941,29 @@
 //     }
 //     return newNode.next;
 // };
+//
+// ------------------------------------------------------
+// Leet Code 27. Remove Element
+var removeElement = function (nums, val) {
+    let i = nums.length;
+    let removed = 0;
+    while (i > 0) {
+        if (nums[0] != val) {
+            nums.push(nums.shift());
+            i--;
+        } else {
+            nums.shift();
+            removed++;
+            i--;
+        }
+    }
+    while (removed > 0) {
+        nums.push('_');
+        removed--;
+    }
+    return nums;
+};
+const nums =
+    [3, 2, 2, 3];
+const val = 3;
+console.log(removeElement(nums, val));
