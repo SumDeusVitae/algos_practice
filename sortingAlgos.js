@@ -1,9 +1,9 @@
 'use strict'
-//Bubble Sort
+//Bubble Sort average time complexity O(n^2) Quadratic time
 const bubbleSort = function (arr) {
     for (let i = 0; i < arr.length; i++) {
 
-        for (let j = 0; j < arr.length - i; j++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 let temp = arr[j];
                 arr[j] = arr[j + 1];
