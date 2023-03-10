@@ -9,8 +9,9 @@ const randomArray = function (n) {
 }
 const testArray = randomArray(9);
 console.log(`Original array ${testArray}`);
-
-//Bubble Sort average time complexity O(n^2) Quadratic time
+//
+//Bubble Sort average time complexity O(n^2) 
+// Quadratic time
 const bubbleSort = function (arr) {
     for (let i = 0; i < arr.length; i++) {
 
@@ -25,8 +26,9 @@ const bubbleSort = function (arr) {
     return arr;
 }
 console.log(`Bubble Sorting ${bubbleSort(testArray)}`);
-
-// Insertion Sort average time complexity O(n^2) Quadratic
+//
+// Insertion Sort average time complexity O(n^2) 
+// Quadratic time
 // Performs better if data 'mostly sorted' 
 const insertion = function (arr) {
     for (let i = 1; i < arr.length; i++) {
@@ -42,3 +44,21 @@ const insertion = function (arr) {
     return arr;
 }
 console.log(`Insertion Sorting ${insertion(testArray)}`);
+//
+//Selection Sort average time complexity O(n^2) 
+// Quadratic time
+const selectionSort = function (arr) {
+    for (let i = 0; i < arr.length; i++) {
+        let min = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+        if (min !== i) {
+            [arr[i], arr[min]] = [arr[min], arr[j]];
+        }
+    }
+    return arr;
+}
+console.log(`Selection Sorting ${selectionSort(testArray)}`);
