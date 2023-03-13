@@ -62,3 +62,62 @@ const selectionSort = function (arr) {
     return arr;
 }
 console.log(`Selection Sorting ${selectionSort(testArray)}`);
+//
+// Merge Sort average time compxity O(n log n) Quasilinear time
+// Requires extra memory
+const mergeSort = function (arr) {
+    const mid = arr.length / 2;
+
+    if (arr.length < 2) {
+        return arr;
+    }
+
+    const left = arr.splice(0, mid);
+    return merge(mergeSort(left), mergeSort(arr));
+}
+function merge (left, right) {
+    let arr = [];
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            arr.push(left.shift());
+        } else {
+            arr.push(right.shift());
+        }
+    }
+    return [...arr, ...left, ...right];
+}
+console.log(`Merge Sorting ${mergeSort(testArray)}`);
+//
+//Quick Sort average time compxity O(n log n) Quasilinear time
+//
+const quickSort = function (arr, left = 0, right = arr.length - 1) {
+    if (left >= right) {
+        return;
+    }
+    let partitionIndex = partition(arr, left, right);
+    quickSort(arr, left, partitionIndex - 1);
+    quickSort(arr, partitionIndex + 1, right);
+
+    return arr;
+}
+function partition (arr, left, right) {
+    let pivotValue = arr[right];
+    let partitionIndex = left;
+
+    for (let i = left; i < right; i++) {
+        if (arr[i] < pivotValue) {
+            swap(arr, i, partitionIndex);
+            partitionIndex++;
+        }
+    }
+    swap(arr, right, partitionIndex);
+}
+// Cheat quicksort, performs a little worse than original
+const quickSortCheat = function (arr) {
+    if (arr.length <= 1) return arr;
+    let pivot = arr[0];
+    let left = arr.filter(x => x < pivot);
+    let right = arr.filter(x => x > pivot);
+    return [...quickSortCheat(left), pivot, ...quickSortCheat(right)]
+}
+
