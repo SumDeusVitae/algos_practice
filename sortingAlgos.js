@@ -25,7 +25,7 @@ const bubbleSort = function (arr) {
     }
     return arr;
 }
-console.log(`Bubble Sorting ${bubbleSort(testArray)}`);
+// console.log(`Bubble Sorting ${bubbleSort(testArray)}`);
 //
 // Insertion Sort average time complexity O(n^2) 
 // Quadratic time
@@ -43,7 +43,7 @@ const insertion = function (arr) {
     }
     return arr;
 }
-console.log(`Insertion Sorting ${insertion(testArray)}`);
+// console.log(`Insertion Sorting ${insertion(testArray)}`);
 //
 //Selection Sort average time complexity O(n^2) 
 // Quadratic time
@@ -61,7 +61,7 @@ const selectionSort = function (arr) {
     }
     return arr;
 }
-console.log(`Selection Sorting ${selectionSort(testArray)}`);
+// console.log(`Selection Sorting ${selectionSort(testArray)}`);
 //
 // Merge Sort average time compxity O(n log n) Quasilinear time
 // Requires extra memory
@@ -86,17 +86,18 @@ function merge (left, right) {
     }
     return [...arr, ...left, ...right];
 }
-console.log(`Merge Sorting ${mergeSort(testArray)}`);
+// console.log(`Merge Sorting ${mergeSort(testArray)}`);
 //
 //Quick Sort average time compxity O(n log n) Quasilinear time
 //
-const quickSort = function (arr, left = 0, right = arr.length - 1) {
+function quickSort (arr, left = 0, right = arr.length - 1) {
     if (left >= right) {
         return;
     }
-    let partitionIndex = partition(arr, left, right);
-    quickSort(arr, left, partitionIndex - 1);
-    quickSort(arr, partitionIndex + 1, right);
+
+    let pivotIndex = partition(arr, left, right);
+    quickSort(arr, left, pivotIndex - 1);
+    quickSort(arr, pivotIndex + 1, right);
 
     return arr;
 }
@@ -111,8 +112,17 @@ function partition (arr, left, right) {
         }
     }
     swap(arr, right, partitionIndex);
+    return partitionIndex;
 }
+function swap (arr, firstIndex, secondIndex) {
+    let temp = arr[firstIndex];
+    arr[firstIndex] = arr[secondIndex];
+    arr[secondIndex] = temp;
+}
+// console.log(`Quick Sorting ${quickSort(testArray)}`);
+//
 // Cheat quicksort, performs a little worse than original
+// Removes repeatables
 const quickSortCheat = function (arr) {
     if (arr.length <= 1) return arr;
     let pivot = arr[0];
@@ -120,4 +130,35 @@ const quickSortCheat = function (arr) {
     let right = arr.filter(x => x > pivot);
     return [...quickSortCheat(left), pivot, ...quickSortCheat(right)]
 }
+// console.log(`Quick Sorting(Cheat) ${quickSortCheat(testArray)}`);
+//
+// Redix Sorting O(k · (b + n))
+// If maximum length of elements known and basis fixed, then O(n)
+//LSD- Less significant digit
+function redixSort (arr) {
+    let maxDigits = 0;
 
+    for (let i = 0; i < arr.length; i++) {
+        maxDigits = Math.max(maxDigits, getNumberOfDigits(arr[i]));
+    }
+    for (let i = 0; i < maxDigits; i++) {
+        let buckets = Array.from({ length: 10 }, () => []);
+
+        for (let j = 0; j < arr.length; j++) {
+            let digit = getDigit(arr[j], i);
+            buckets[digit].push(arr[j]);
+        }
+        arr = [].concat(...buckets);
+    }
+
+    return arr;
+}
+
+function getDigit (num, place) {
+    return Math.floor(Math.abs(num) / Math.pow(10, place)) % 10;
+}
+
+function getNumberOfDigits (num) {
+    return Math.floor(Math.log10(Math.abs(num))) + 1;
+}
+console.log(`Redix Sorting ${redixSort(testArray)}`);
