@@ -967,3 +967,4 @@ const nums =
     [3, 2, 2, 3];
 const val = 3;
 console.log(removeElement(nums, val));
+// ?
